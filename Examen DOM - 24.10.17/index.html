@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    	h1 {
+    		text-align: center;
+    	}
+    	
+        h2 {
+    		text-align: center;
+    	}
+    	
+        .precios {
+    		display: none;
+    	}
+    	
+        .readonly {
+    		display: block;
+            border: 0;
+    	}
+    </style>
+
+</head>
+
+<body>
+	<h1>Guitarras de Lolo</h1>    
+    
+    <form>
+        <fieldset>
+            <legend>Ingresar Guitarras</legend>
+
+            <label>Tipo:</label>
+            <select id="tipo">
+                <option value="1">1- Acústica</option>
+                <option value="2">2- Eléctrica</option>
+                <option value="3">3- Electroacústica</option>
+             </select>
+
+            <label>Cantidad:</label>
+            <input id="Cantidad" type="number" min="1" max="10">
+
+            <input type="button" onclick="suma(tipo.value, Cantidad.value);" value="Comprar"></input>
+
+            <input type="reset">
+        </fieldset>
+    </form>
+
+    <div class="precios">
+        <div>
+            <div>Guitarras Acústicas</div>
+            <input type="text" name="agd" id="acusticGuitarDiv" value="2000">
+        </div>
+
+        <div>
+            <div>Guitarras Eléctricas</div>
+
+            <input type="text" name="egd" id="electricGuitarDiv" value="2500">
+        </div>
+
+        <div>
+            <div>Guitarras Electroacústicas</div>
+
+            <input type="text" name="eagd" id="electroacusticGuitarDiv" value="2300">
+        </div>
+    </div>
+
+    <h2>Recaudación de Guitrras:</h2>
+
+    <div class="contenedor">
+        <table width="100%" border="0">
+            <tr>
+                <th>Guitarras Acústicas</th>
+                <th>Guitarras Eléctricas</th>
+                <th>Guitarras Electroacústicas</th>
+            </tr>
+            <tr>
+                <td align="center"><input class="readonly" type="text" name="totalA" id="totalA" placeholder="$"></input></td>
+                <td align="center"><input class="readonly" type="text" name="totalE" id="totalE" placeholder="$"></input></td>
+                <td align="center"><input class="readonly" type="text" name="totalEA" id="totalEA" placeholder="$"></input></td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        function suma(tipo, numb) {
+            var precioAcustica = document.getElementById("acusticGuitarDiv").value;
+            var precioElectrica = document.getElementById("electricGuitarDiv").value;
+            var precioElectroAcustica = document.getElementById("electroacusticGuitarDiv").value;
+            var totalA;
+            var totalE;
+            var totalEA;
+
+            var ventasAcustica = document.getElementById("totalA").value;
+            var ventasElectrica = document.getElementById("totalE").value;
+            var ventasElectroAcustica = document.getElementById("totalEA").value;
+
+            if (tipo==1) {
+                totalA = numb * precioAcustica
+                document.getElementById("totalA").value = Number(ventasAcustica) + Number(totalA);
+            }
+
+            if (tipo==2) {
+                totalE = numb * precioElectrica
+                document.getElementById("totalE").value = Number(ventasElectrica) + Number(totalE);
+            }
+
+            if (tipo==3) {
+                totalEA = numb * precioElectroAcustica
+                document.getElementById("totalEA").value = Number(ventasElectroAcustica) + Number(totalEA);
+            }
+        }
+    </script>
+
+</body>
+
+</html>
