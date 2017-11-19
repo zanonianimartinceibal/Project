@@ -79,6 +79,10 @@
                 <td align="center"><input class="readonly" type="text" name="totalA" id="totalA" placeholder="$"></input></td>
                 <td align="center"><input class="readonly" type="text" name="totalE" id="totalE" placeholder="$"></input></td>
                 <td align="center"><input class="readonly" type="text" name="totalEA" id="totalEA" placeholder="$"></input></td>
+		/*
+			Estos input estan cumpliendo la funcion de almacenar el costo de las guitarras.
+			Se podrian sacar y colocar como constantes dentro del codigo JavaScript
+		*/
             </tr>
         </table>
     </div>
@@ -91,7 +95,12 @@
             var totalA;
             var totalE;
             var totalEA;
-
+		/*
+			Es conveniente inicializar las variables 
+			Ej: var totalA = 0;
+			Asi se evita tener que parsearlo mas adelante
+			
+		*/
             var ventasAcustica = document.getElementById("totalA").value;
             var ventasElectrica = document.getElementById("totalE").value;
             var ventasElectroAcustica = document.getElementById("totalEA").value;
@@ -110,6 +119,13 @@
                 totalEA = numb * precioElectroAcustica
                 document.getElementById("totalEA").value = Number(ventasElectroAcustica) + Number(totalEA);
             }
+		/*
+			Conviene usar else if asi solo se evalua hasta que se encuentre uno solo 
+			que cumpla con la condicion.
+			En este ejemplo que se habla de una funcion chica que no tiene que procesar muchos datos
+			no afecta tanto la performance de la aplicacion pero igualmente es una buena practica.
+		*/
+		
         }
     </script>
 
